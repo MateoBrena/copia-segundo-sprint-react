@@ -2,8 +2,16 @@ import Form from "react-bootstrap/Form"
 import "../css/NewTransfer.css"
 import Navbar from "./Navbar";
 import Header from "./Header";
+import { useState } from "react";
 
 export default function NewTransfers() {
+    const [destinatario, setDestinatario] = useState("CBU")
+    const [origen, setOrigen] = useState("ARS")
+    const [motivo, setMotivo] = useState("")
+    const [monto, setMonto] = useState("")
+    const [referencia, setReferencia] = useState("")
+
+
     return (
         <>
             <Header></Header>
@@ -11,43 +19,43 @@ export default function NewTransfers() {
         <Navbar></Navbar>
           <div className="contenedor-form">
             <h1> Nueva transferencia</h1>
-        <form action="" className="formulario-transfer">
-            <div>
+        <Form action="" className="formulario-transfer">
+            <div className="destinatario-wrapper">
                 <label htmlFor="destinatario">Destinatario:</label>
-                <Form.Select name="identificacion" id="identificacion">
-                    <option value="cbu">CBU</option>
-                    <option value="alias">Alias</option>
+                <Form.Select name="identificacion" id="identificacion" value={destinatario} onChange={e => setDestinatario(e.target.value)}>
+                    <option value="CBU">CBU</option>
+                    <option value="Alias">Alias</option>
                 </Form.Select>
-                <input type="text" name="destinatario" id="destinatario" className="form m-3"/>
+                <Form.Control type="text" name="destinatario" id="destinatario" placeholder={destinatario}/>
             </div>
             <div>
                     <label htmlFor="origen">Cuenta de origen:</label>
-                    <select name="origen" id="origen" >
-                        <option value="ars">CA $ARS 000215684156</option>
-                        <option value="usd">CA $USD 000215684157</option>
-                    </select>
+                    <Form.Select name="origen" id="origen" value={origen} onChange={e => setOrigen(e.target.value)}>
+                        <option value="ARS">CA $ARS 000215684156</option>
+                        <option value="USD">CA $USD 000215684157</option>
+                    </Form.Select>
             </div>
             <div>
                     <label htmlFor="monto">Monto:</label>
-                    <input type="number" id="monto" name="monto"/>
+                    <Form.Control type="number" id="monto" name="monto" value={monto} onChange={e => setMonto(e.target.value)}/>
             </div>
             <div>
                 <label htmlFor="motivo">Motivo:</label>
-                <select name="motivo" id="motivo">
+                <Form.Select name="motivo" id="motivo" value={motivo} onChange={e => setMotivo(e.target.value)}>
                     <option value="alquiler">Alquiler</option>
                     <option value="expensas">Expensas</option>
                     <option value="facturas">Facturas</option>
                     <option value="prestamo">Préstamo</option>
                     <option value="seguro">Seguro</option>
                     <option value="varios">Varios</option>
-                </select>
+                </Form.Select>
             </div>
             <div>
                 <label htmlFor="referencia">Referencia:</label>
-                <input type="text" id="referencia" name="referencia"/>
+                <Form.Control type="text" id="referencia" name="referencia" value={referencia} onChange={e => setReferencia(e.target.value)}/>
             </div>
             <button className="boton-transferencia">Enviar</button>
-        </form>
+        </Form>
         </div>
         </div>
         </>

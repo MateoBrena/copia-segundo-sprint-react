@@ -15,6 +15,15 @@
     border: none;
     border-bottom: 2px solid white;
     border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.sin-borde-disabled {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
 }
 
 .sin-borde:focus {
@@ -22,16 +31,32 @@
     border-bottom: 2.4px solid darkblue;
 }
 
+.contenedor_invertir {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #botoninvertir {
     font-weight: bold;
-    margin: 0.5rem;
-    padding: 1rem;
+    margin: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
     width: 100%;
     color: whitesmoke;
     background-color: darkblue;
-    align-self: center;
 }
+
+.conv-sel {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.conv-sel:focus {
+    outline: none
+}
+
 
 @media (min-width: 768px) {
     .conversor {
