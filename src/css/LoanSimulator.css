@@ -6,6 +6,11 @@
     box-shadow: 16px 10px 30px -17px rgba(0,0,0,0.3);
 }
 
+.header-centre {
+    text-align: center;
+    margin: 1rem;
+}
+
 .simulador label{
     display: block;
     font-weight: 500;
@@ -34,19 +39,28 @@
 
 .tiempo select {
     width: 35%;
-    border: 1px solid darkblue;
-    padding: 8px 0;
+    border: none;
+    padding: 5px;
     margin-left: 5%;
     font-size: 20px;
     border-radius: 5px;
 }
 
-#calcular {
-    display: block;
+.tiempo select:focus {
+    outline: none
+}
+
+.buttons-wrapper {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.calcular {
+    display: inline-block;
     background-color: darkblue;
     color: whitesmoke;
-    margin: 20px auto 0 auto;
-    padding: 15px 40px;
+    padding: 15px;
     font-size: 20px;
     border-radius: 5px;
 }
@@ -77,6 +91,10 @@
 .sin-borde:focus {
     outline: none;
     border-bottom: 2.4px solid darkblue;
+}
+
+#alerta {
+    color: red;
 }
 
 @media (min-width: 768px) {
