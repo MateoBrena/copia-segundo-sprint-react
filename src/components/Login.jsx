@@ -1,5 +1,5 @@
 import "../css/Login.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import LoginHeader from "./LoginHeader"
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
@@ -8,15 +8,21 @@ import FloatingLabel  from "react-bootstrap/FloatingLabel";
 
 export default function Login() {
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
+            e.preventDefault()
+            e.stopPropagation()
         }
-
         setValidated(true)
+    }
+
+    const handleClick = () => {
+        if (validated === true) {
+            navigate("/accounts")
+        }
     }
 
     return (
@@ -40,7 +46,7 @@ export default function Login() {
                                     <Form.Control.Feedback type="invalid">Contraseña inválida</Form.Control.Feedback>
                                 </FloatingLabel>
                             </Form.Group>
-                            <button type="submit" className="boton">Ingresar</button>
+                            <button type="submit" className="boton" onClick={handleClick}>Ingresar</button>
                         </Form>
                         <p className="center"> Todavía no tienes una cuenta? Puedes <Link to="">crear una nueva cuenta</Link></p>
                     </div>
